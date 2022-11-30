@@ -1,0 +1,53 @@
+.container {
+    width: 1340px;
+    margin: auto;
+    
+}
+.contentMain {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    
+}
+.promo {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+  
+
+}
+.titleContent {
+    text-align: center;
+    padding: 20px 0 ;
+}
+.btn {
+    transition: all .3s ease-in-out;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .3s ease;
+    width: 150px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #379683;
+    border-radius: 30px;
+    &:hover {
+        background-color: #379683;
+        color: #fff;
+    }
+    &:active {
+        background-color: #2b7465;
+        color: #fff;
+       
+    }
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+        text-align: center;
+    }
+}

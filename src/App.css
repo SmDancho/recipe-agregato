@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  list-style-type: none;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+body {
+  background:#8EE4AF;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  
+}
+::-webkit-scrollbar-track {
+  background:transparent;
+  margin: 30px 0;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb   {
+  background:#000;
+  border-radius: 10px;
+}
+
+.title {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}

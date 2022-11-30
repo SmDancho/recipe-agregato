@@ -1,0 +1,92 @@
+.container {
+  width: 1340px;
+  margin: auto;
+}
+.filterWrapper {
+  height: 50px;
+  background-color: #edf5e1;
+  padding: 25px 0;
+}
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  width: 90%;
+  border-radius: 30px;
+  margin: auto;
+  font-weight: 500;
+  height: 50px;
+  padding: 0 25px;
+}
+
+.categories {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  div {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+}
+
+.search {
+  width: 250px;
+  font-size: 16px;
+  padding: 0 20px;
+  height: 30px;
+  border: 1px solid #d9d9d9;
+  border-radius: 30px;
+}
+.searchBlock {
+  position: relative;
+  img {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.cuisine,.Сategory {
+  position: relative;
+  .popup {
+    overflow: auto;
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    top: 40px;
+    left: -20px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    z-index: 111;
+    border: 1px solid #D3D0D0;
+    ul {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;    
+      li {   
+        width: 100%;
+        padding: 10px 0 ;
+        border-bottom: 1px solid #D3D0D0;
+        &:hover {
+          background-color: #D3D0D0;
+        }
+        &:active {
+          background-color: #afaeae;
+        }
+      }
+    }
+  }
+}
+
+.rotate {
+    display: block;
+    transform: rotate(180deg)
+}
