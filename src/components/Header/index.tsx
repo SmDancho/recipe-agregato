@@ -13,11 +13,6 @@ export function Header() {
           </Link>
 
           <div className={styles.menu}>
-            {/* <Link to="/profile">
-              <div className={styles.favorite}>
-                <img src="./img/heart.svg" alt="heart" />
-              </div>
-            </Link> */}
             <div className={styles.user}>
               <Link to="/profile">
                 <img src="./img/user.svg" alt="user" />

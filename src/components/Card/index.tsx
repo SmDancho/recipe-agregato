@@ -19,7 +19,6 @@ export function Card(props: IcardTypes) {
     dispatch(
       addFavorite({
         label: props.recipe.label,
-        img: props.recipe.image,
         cusType: props.recipe.cuisineType,
         category: props.recipe.dishType,
         link: props._links?.self?.href,

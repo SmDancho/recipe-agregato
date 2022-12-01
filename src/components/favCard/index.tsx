@@ -16,9 +16,6 @@ export function Favcard(props: IfavCard) {
   return (
     <div>
       <div className={styles.cardWarpper}>
-        <div className={styles.imgBlock}>
-          <img width={120} height={110} src={props.img} alt="Dish" />
-        </div>
         <div className={styles.titleCard}>
           <h3>{props.label?.slice(0, 40)}</h3>
         </div>

@@ -9,12 +9,13 @@ import { useEffect } from "react";
 
 import { useGetRecipesQuery, useLazyGetMoreDataQuery } from "../../redux/api";
 
-import {clearStatus} from "../../redux/addFavoriteApi"
+import { clearStatus } from "../../redux/addFavoriteApi";
 
 import type { RootState } from "../../redux/store";
 import { IcardTypes } from "../../types/card";
 
 import { toast } from "react-toastify";
+import { Filter } from "../../components/Filters";
 
 export function Content() {
   const dispatch = useDispatch();
@@ -40,7 +41,6 @@ export function Content() {
 
   const {
     data = [],
-    isLoading,
     refetch,
   } = useGetRecipesQuery({
     deboncedSearchValue,
@@ -48,46 +48,56 @@ export function Content() {
     totalCategoryValue,
   });
 
-  const [trigger, result] = useLazyGetMoreDataQuery();
+  const [trigger, result] = useLazyGetMoreDataQuery(); //endpoint for fetch new data
+
+  const fetchNewData = () => {
+    result.data
+      ? trigger(result.data._links.next.href)
+      : trigger(data._links.next.href);
+
+    refetch();
+  };
 
   useEffect(() => {
     dispatch(clearStatus());
     toast(status);
   }, [status]);
 
+
   return (
     <>
+      <Filter />
       <div className={styles.container}>
-        <div className={styles.promo}>
+        <div id="start" className={styles.promo}>
           <div className={styles.titles}>
             <h1 className="title">Choose CuisineType first</h1>
             <p> Cuisine: {cuisineType}</p>
             <p> Category: {category}</p>
           </div>
           <div id="contentMain" className={styles.contentMain}>
-            {isLoading
-              ? [...new Array(20)].map((_, idx) => <Skeleton key={idx} />)
-              : data.hits.map((recipes: IcardTypes, index: number) => (
+
+            {result?.data 
+              ? result.data.hits.map((recipes: IcardTypes, index: number) => (
+                  <Card key={index} {...recipes} />
+                ))
+              : data.hits?.map((recipes: IcardTypes, index: number) => (
                   <Card key={index} {...recipes} />
                 ))}
 
-            {result.data &&
-              result.data.hits.map((recipes: IcardTypes, index: number) => (
-                <Card key={index} {...recipes} />
-              ))}
-
-            <button
-              onClick={() => {
-                result.data
-                  ? trigger(result.data._links.next.href)
-                  : trigger(data._links.next.href);
-
-                refetch();
-              }}
-              className={styles.btn}
+            <a
+              href="
+            #start
+            "
             >
-              load More
-            </button>
+              <button
+                onClick={() => {
+                  fetchNewData();
+                }}
+                className={styles.btn}
+              >
+                Next
+              </button>
+            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import {useCookie} from "../hooks/getToken"
 
 export interface favoriteState {
   list: null | string;
@@ -17,20 +18,19 @@ const initialState: favoriteState = {
 
 export const addFavorite: any = createAsyncThunk(
   "favoriteSlice/addFavorite",
-  async ({ label, img, cusType, category, link }: String | any) => {
+  async ({ label, cusType, category, link }: String | any) => {
     try {
       const { data } = await axios.post(
         "http://localhost:5000/add/addToFavortite",
         {
           label,
-          img,
           cusType,
           category,
           link,
         },
         {
           headers: {
-            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+            Authorization: `Bearer ${useCookie('token')}`,
           },
         }
       );
@@ -52,7 +52,7 @@ export const removeFavorite: any = createAsyncThunk(
         },
         {
           headers: {
-            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+            Authorization: `Bearer ${useCookie('token')}`,
           },
         }
       );
@@ -69,7 +69,7 @@ export const getfavorite: any = createAsyncThunk(
     try {
       const { data } = await axios.get("http://localhost:5000/add/favorite", {
         headers: {
-          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          Authorization: `Bearer ${useCookie('token')}`,
         },
       });
       return data;

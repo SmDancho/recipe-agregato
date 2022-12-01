@@ -6,15 +6,15 @@ export const recipeApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: `https://api.edamam.com/api/` }),
   endpoints: (builder) => ({
     getRecipes: builder.query<any ,any>({
-      query: ({ deboncedSearchValue, totalCusValue,totalCategoryValue }) => ({
-        url: `recipes/v2?&app_id=76a2ec84&app_key=c7922b8b3b6f0896d3cd7b7f7570ca51`,
+      query: ({ deboncedSearchValue, totalCusValue,totalCategoryValue ,url =`recipes/v2?&app_id=76a2ec84&app_key=c7922b8b3b6f0896d3cd7b7f7570ca51`}) => ({
+        url: 'recipes/v2?&app_id=76a2ec84&app_key=c7922b8b3b6f0896d3cd7b7f7570ca51',
         params: {
           q: deboncedSearchValue,
           dishType: totalCategoryValue,
           cuisineType: totalCusValue,
           type: "public",
           imageSize: "SMALL",
-          
+        
 
         },
       }),

@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 // components
 import { Header } from "./components/Header";
-import { Filter } from "./components/Filters";
 
 //pages
 import { Content } from "./pages/Home";
@@ -36,7 +35,7 @@ function App() {
   return (
     <>
         <Header />
-        <Filter />
+ 
         <Routes>
           <Route path="/" element={<Content />}></Route>
           <Route path={`/profile`} element={<Profile />}></Route>
