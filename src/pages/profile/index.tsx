@@ -32,7 +32,7 @@ export function Profile() {
     dispatch(clearStatus());
     dispatch(getfavorite());
     toast(status);
-  }, [status]);
+  }, [dispatch, status]);
 
   return isAuth ? (
     <div>
