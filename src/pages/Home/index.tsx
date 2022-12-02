@@ -1,7 +1,6 @@
 import styles from "./conten.module.scss";
 
 import { Card } from "../../components/Card";
-import { Skeleton } from "../../components/Skeleton";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useDebounce } from "../../hooks/debonce";
@@ -61,6 +60,7 @@ export function Content() {
   useEffect(() => {
     dispatch(clearStatus());
     toast(status);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
 

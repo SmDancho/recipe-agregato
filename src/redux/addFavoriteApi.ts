@@ -21,7 +21,7 @@ export const addFavorite: any = createAsyncThunk(
   async ({ label, cusType, category, link }: String | any) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/add/addToFavortite",
+        "https://recipe-app1.herokuapp.com/add/addToFavortite",
         {
           label,
           cusType,
@@ -46,7 +46,7 @@ export const removeFavorite: any = createAsyncThunk(
   async ({ label }: String | any) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/add/removeTofavorite",
+        "https://recipe-app1.herokuapp.com/add/removeTofavorite",
         {
           label,
         },
@@ -67,7 +67,7 @@ export const getfavorite: any = createAsyncThunk(
   "favoriteSlice/getfavorite",
   async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/add/favorite", {
+      const { data } = await axios.get("https://recipe-app1.herokuapp.com/add/favorite", {
         headers: {
           Authorization: `Bearer ${useCookie('token')}`,
         },

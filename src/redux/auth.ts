@@ -22,7 +22,7 @@ export const registerUser: any = createAsyncThunk(
   async ({ username, password }: any) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/auth/registration",
+        "https://recipe-app1.herokuapp.com/auth/registration",
         {
           username,
           password,
@@ -43,7 +43,7 @@ export const loginUser: any = createAsyncThunk(
   "authSlice/loginUser",
   async ({ username, password }: any) => {
     try {
-      const { data } = await axios.post("http://localhost:5000/auth/login", {
+      const { data } = await axios.post("https://recipe-app1.herokuapp.com/auth/login", {
         username,
         password,
       });
@@ -64,7 +64,7 @@ export const getme: any = createAsyncThunk(
     try {
 
 
-      const { data } = await axios.get("http://localhost:5000/auth/getme", {
+      const { data } = await axios.get("https://recipe-app1.herokuapp.com/auth/getme", {
         headers: {
           Authorization: `Bearer ${useCookie("token")}`,
         },
