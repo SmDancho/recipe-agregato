@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     dispatch(getme());
     dispatch(getfavorite());
-  }, [getUserToken]);
+  }, [getUserToken, dispatch]);
 
   return (
     <>
